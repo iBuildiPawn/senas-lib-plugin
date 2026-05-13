@@ -1,0 +1,59 @@
+{
+  "name": "tech-librarian",
+  "description": "Validates technical-architecture triggers fire, functional/domain prompts do not fire, and learn-vs-recall mode selection.",
+  "cases": [
+    {
+      "id": "trigger-technical-overview",
+      "prompt": "Explain this codebase technically — services, APIs, data models.",
+      "expect_skill_invoked": true,
+      "expect_mode": "learn",
+      "context": ".librarian/ does not exist"
+    },
+    {
+      "id": "trigger-architecture-question",
+      "prompt": "How does the order service talk to the payment service?",
+      "expect_skill_invoked": true,
+      "expect_mode": "recall",
+      "context": ".librarian/ exists and is fresh"
+    },
+    {
+      "id": "trigger-where-does-x-live",
+      "prompt": "Where does the authentication middleware live?",
+      "expect_skill_invoked": true,
+      "expect_mode": "recall",
+      "context": ".librarian/ exists and is fresh"
+    },
+    {
+      "id": "trigger-onboarding",
+      "prompt": "I just joined this team — give me a first-day briefing on this repo.",
+      "expect_skill_invoked": true,
+      "expect_mode": "learn",
+      "context": ".librarian/ does not exist"
+    },
+    {
+      "id": "trigger-refresh",
+      "prompt": "Refresh the librarian docs — the code has moved on.",
+      "expect_skill_invoked": true,
+      "expect_mode": "learn",
+      "context": ".librarian/ exists but stale (>200 commits behind HEAD)"
+    },
+    {
+      "id": "no-trigger-business-workflow",
+      "prompt": "Walk me through the order placement business workflow including who the actors are.",
+      "expect_skill_invoked": false,
+      "context": "This is functional/domain territory — should NOT invoke tech-librarian. (A separate domain-focused skill would handle this.)"
+    },
+    {
+      "id": "no-trigger-glossary",
+      "prompt": "What does our team mean by 'branch manager' as a role?",
+      "expect_skill_invoked": false,
+      "context": "Domain glossary territory — should NOT invoke tech-librarian."
+    },
+    {
+      "id": "no-trigger-unrelated",
+      "prompt": "What's the weather today?",
+      "expect_skill_invoked": false,
+      "context": "Completely unrelated — sanity check."
+    }
+  ]
+}

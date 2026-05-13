@@ -1,0 +1,6 @@
+{
+  "name": "engineer-toolkit",
+  "version": "0.4.0",
+  "description": "Engineering tools for understanding and organizing codebases",
+  "author": { "name": "Senas", "email": "dev@senas.cc" }
+}

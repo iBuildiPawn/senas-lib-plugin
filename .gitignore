@@ -1,0 +1,13 @@
+# Per-user Claude Code state — install registrations, local settings, etc.
+# The marketplace and plugin manifests live in .claude-plugin/ and plugins/,
+# not here, so the whole directory is contributor-local.
+.claude/
+
+# Internal development docs (specs, implementation plans, retros).
+# Kept local; not part of the shipped marketplace.
+docs/
+
+# skill-creator writes per-iteration workspaces next to each skill it validates
+# (e.g. plugins/<plugin>/skills/<skill>-workspace/iteration-N/). These are
+# transient eval artifacts, not part of the shipped plugin.
+**/skills/*-workspace/

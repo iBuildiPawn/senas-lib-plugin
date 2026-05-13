@@ -1,0 +1,11 @@
+{
+  "name": "senas-plugins",
+  "owner": { "name": "Senas", "email": "dev@senas.cc" },
+  "metadata": {
+    "description": "Personal Claude Code plugins for engineering workflows",
+    "version": "0.4.0"
+  },
+  "plugins": [
+    { "name": "engineer-toolkit", "source": "./plugins/engineer-toolkit" }
+  ]
+}
